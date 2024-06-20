@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgdmj4t16g7ak"]
+
+[ext_resource type="Texture2D" uid="uid://mapxfdb03uyi" path="res://art/CaveTilemap.png" id="1_hwu5x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikajf"]
+size = Vector2(48, 48)
+
+[node name="goal" type="Area2D" groups=["goals"]]
+z_index = 2
+use_parent_material = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ikajf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+use_parent_material = true
+texture = ExtResource("1_hwu5x")
+region_enabled = true
+region_rect = Rect2(320, 128, 64, 64)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

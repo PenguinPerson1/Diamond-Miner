@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgnoep3lh0y4"]
+
+[ext_resource type="Texture2D" uid="uid://drvea4k2b2ds8" path="res://art/Furnace.png" id="1_i4ccy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikajf"]
+size = Vector2(48, 48)
+
+[node name="converter" type="Area2D" groups=["converters"]]
+z_index = 2
+use_parent_material = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ikajf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(1.90735e-06, 1.90735e-06)
+scale = Vector2(4, 4)
+texture = ExtResource("1_i4ccy")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

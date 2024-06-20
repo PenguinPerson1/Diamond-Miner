@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://diamy4voo3nr0"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_y262a"]
+[ext_resource type="Script" path="res://StageButton.gd" id="2_utyv4"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_y262a")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Stage1Button" type="Button" parent="HUD"]
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 256.0
+offset_bottom = 192.0
+text = "Stage 1"
+script = ExtResource("2_utyv4")
+id = 1
+
+[node name="Stage2Button" type="Button" parent="HUD"]
+offset_left = 320.0
+offset_top = 64.0
+offset_right = 512.0
+offset_bottom = 192.0
+text = "Stage 2"
+script = ExtResource("2_utyv4")
+id = 2
+
+[node name="Stage3Button" type="Button" parent="HUD"]
+offset_left = 576.0
+offset_top = 64.0
+offset_right = 768.0
+offset_bottom = 192.0
+text = "Stage 3"
+script = ExtResource("2_utyv4")
+id = 3

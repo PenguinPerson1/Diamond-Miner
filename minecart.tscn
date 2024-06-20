@@ -1,0 +1,100 @@
+[gd_scene load_steps=9 format=3 uid="uid://uycqdv2k0ijv"]
+
+[ext_resource type="Script" path="res://minecart.gd" id="1_7yjgg"]
+[ext_resource type="Texture2D" uid="uid://ypwoigp3e2in" path="res://art/Minecart.png" id="2_32cil"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqc7m"]
+size = Vector2(48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdfn3"]
+atlas = ExtResource("2_32cil")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncqdq"]
+atlas = ExtResource("2_32cil")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_df5r2"]
+atlas = ExtResource("2_32cil")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tm60x"]
+atlas = ExtResource("2_32cil")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_camqh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdfn3")
+}],
+"loop": true,
+"name": &"right_empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncqdq")
+}],
+"loop": true,
+"name": &"right_full",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_df5r2")
+}],
+"loop": true,
+"name": &"up_empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tm60x")
+}],
+"loop": true,
+"name": &"up_full",
+"speed": 5.0
+}]
+
+[node name="minecart" type="Area2D" groups=["pullable", "pushable", "resetting"]]
+use_parent_material = true
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_7yjgg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wqc7m")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 32)
+collision_mask = 34
+collide_with_areas = true
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+target_position = Vector2(0, 32)
+collision_mask = 16
+collide_with_areas = true
+
+[node name="RayCast2D3" type="RayCast2D" parent="."]
+target_position = Vector2(0, 32)
+collision_mask = 32
+collide_with_areas = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+z_index = 3
+use_parent_material = true
+position = Vector2(0, -8)
+scale = Vector2(4, 4)
+texture = ExtResource("2_32cil")
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 16)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 3
+use_parent_material = true
+position = Vector2(0, -8)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_camqh")
+animation = &"right_full"

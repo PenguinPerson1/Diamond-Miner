@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://yh0w8j3dg7lf"]
+
+[ext_resource type="PackedScene" uid="uid://x3emcrwga0ea" path="res://player.tscn" id="1_050ud"]
+[ext_resource type="PackedScene" uid="uid://c4ub6yo1ahw8n" path="res://wall.tscn" id="2_i4ksg"]
+[ext_resource type="PackedScene" uid="uid://lhk8lrdqrgw8" path="res://box.tscn" id="3_ok0d7"]
+[ext_resource type="PackedScene" uid="uid://dgnoep3lh0y4" path="res://converter.tscn" id="5_bxs2x"]
+
+[node name="Main" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("1_050ud")]
+
+[node name="wall" parent="." instance=ExtResource("2_i4ksg")]
+position = Vector2(160, 32)
+
+[node name="wall2" parent="." instance=ExtResource("2_i4ksg")]
+position = Vector2(160, 96)
+
+[node name="box" parent="." instance=ExtResource("3_ok0d7")]
+position = Vector2(288, 160)
+is_pull = true
+
+[node name="converter" parent="." instance=ExtResource("5_bxs2x")]
+z_index = -1
+position = Vector2(480, 160)
+collision_mask = 3
+
+[node name="box2" parent="." instance=ExtResource("3_ok0d7")]
+position = Vector2(416, 288)
